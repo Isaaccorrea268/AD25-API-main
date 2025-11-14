@@ -10,6 +10,16 @@ class Receta extends Model
     /** @use HasFactory<\Database\Factories\RecetaFactory> */
     use HasFactory;
 
+    protected $fillable = [  // Campos que se pueden asignar masivamente 
+        'categoria_id',
+        // 'user_id',  // Se asigna automáticamente en el controlador con el usuario logueado 
+        'titulo',
+        'descripcion',
+        'ingredientes',
+        'instrucciones',
+        'imagen',
+    ];
+
     // Una receta puede tener muchas etiquetas y una etiqueta puede tener muchas recetas
     public function etiquetas(){
         return $this->belongsToMany(Etiqueta::class);
